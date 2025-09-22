@@ -5,7 +5,7 @@ import { Clock, Users, MapPin } from "lucide-react"
 const accommodationTypes = [
   {
     name: "Chambre individuelle",
-    price: "35€",
+    price: "35000 FCFA",
     period: "par nuit",
     capacity: "1 personne",
     description: "Chambre simple avec lavabo, idéale pour la retraite personnelle",
@@ -13,7 +13,7 @@ const accommodationTypes = [
   },
   {
     name: "Chambre double",
-    price: "55€",
+    price: "55 000 FCFA",
     period: "par nuit",
     capacity: "2 personnes",
     description: "Chambre confortable pour couples ou amis en retraite",
@@ -21,7 +21,7 @@ const accommodationTypes = [
   },
   {
     name: "Groupe (6-12 pers.)",
-    price: "280€",
+    price: "28000 FCFA",
     period: "par nuit",
     capacity: "6-12 personnes",
     description: "Hébergement complet pour groupes en retraite spirituelle",
@@ -108,11 +108,11 @@ export function AccommodationInfo() {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span>Petit-déjeuner :</span>
-                      <span className="font-medium">+8€/personne</span>
+                      <span className="font-medium">+8 000 FCFA/personne</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Repas complet :</span>
-                      <span className="font-medium">+15€/personne</span>
+                      <span className="font-medium">+15 000 FCFA/personne</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Annulation :</span>

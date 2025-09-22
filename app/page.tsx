@@ -1,6 +1,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { MassSchedule } from "@/components/mass-schedule"
-import { LatestNews } from "@/components/latest-news"
+//import { LatestNews } from "@/components/latest-news"
 import { CTASection } from "@/components/cta-section"
 
 export default function HomePage() {
@@ -8,7 +8,7 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <MassSchedule />
-      <LatestNews />
+      {/* <LatestNews /> */}
       <CTASection />
     </main>
   )

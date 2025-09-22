@@ -6,19 +6,19 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Adresse",
-    content: "123 Rue de la Paix\n75001 Paris, France",
+    content: "MVOLYE, YAOUNDE, Cameroun",
     color: "text-primary",
   },
   {
     icon: Phone,
     title: "Téléphone",
-    content: "+33 1 23 45 67 89",
+    content: "+237 698849425",
     color: "text-secondary",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "contact@paroisse-saint-esprit.fr",
+    content: "mvelenyogogsilvannel@gmail.com",
     color: "text-accent",
   },
 ]
@@ -143,7 +143,7 @@ export function ContactInfo() {
           <p className="text-sm text-muted-foreground mb-2">
             Pour les urgences (sacrement des malades, accompagnement en fin de vie), contactez-nous 24h/24 :
           </p>
-          <p className="font-semibold text-primary">+33 6 12 34 56 78</p>
+          <p className="font-semibold text-primary">+237 698849425</p>
         </CardContent>
       </Card>
     </div>

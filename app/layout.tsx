@@ -4,16 +4,16 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import { Navigation } from "@/components/navigation"
+import Navigation  from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Paroisse Saint-Esprit | Accueil spirituel et hébergement",
+  title: "MAISON NAZARETH | Accueil spirituel et hébergement",
   description:
     "Découvrez notre paroisse catholique moderne. Messes, événements, hébergement spirituel et accompagnement pastoral dans un cadre accueillant.",
-  generator: "v0.app",
+  generator: "MVELE NELL",
 }
 
 export default function RootLayout({

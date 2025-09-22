@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -27,7 +26,7 @@ export default async function TeamPage() {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
+      
       <main>
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10">
@@ -112,20 +111,36 @@ export default async function TeamPage() {
                 N'hésitez pas à nous contacter pour un entretien, une confession ou simplement pour échanger.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Prendre rendez-vous
-                </Button>
-                <Button variant="outline" size="lg">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Nous écrire
-                </Button>
-              </div>
+  {/* WhatsApp */}
+  <a
+    href="https://wa.me/237698849425"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button size="lg" className="bg-primary hover:bg-primary/90">
+      <Phone className="h-4 w-4 mr-2" />
+      Prendre rendez-vous
+    </Button>
+  </a>
+
+  {/* Gmail */}
+  <a
+    href="mailto:mvelenyogogsilvannel@gmail.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="outline" size="lg">
+      <Mail className="h-4 w-4 mr-2" />
+      Nous écrire
+    </Button>
+  </a>
+</div>
+
             </div>
           </div>
         </section>
       </main>
-      <Footer />
+      
     </div>
   )
 }

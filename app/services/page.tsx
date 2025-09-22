@@ -1,9 +1,10 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+"use client"
+
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Clock, Heart, Users, Baby, Minus as Rings, Cross, BookOpen, Calendar } from "lucide-react"
+import { Clock, Heart, Users, Baby, Minus as Rings, Cross, BookOpen, Calendar, PhoneCall, Mail } from "lucide-react"
 
 const services = [
   {
@@ -81,9 +82,16 @@ const services = [
 ]
 
 export default function ServicesPage() {
+  const whatsappNumber = "237698849425"
+  const whatsappMessage = "Bonjour, je voudrais prendre rendez-vous pour un service paroissial."
+
+  const emailAddress = "mvelenyogogsilvannel@gmail.com"
+  const emailSubject = "Demande de rendez-vous"
+  const emailBody = "Bonjour, je souhaite prendre un rendez-vous."
+
   return (
     <div className="min-h-screen">
-      <Navigation />
+      
       <main>
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10">
@@ -131,10 +139,36 @@ export default function ServicesPage() {
                           </li>
                         ))}
                       </ul>
-                      <Button variant="outline" className="w-full mt-4 bg-transparent">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        Prendre rendez-vous
-                      </Button>
+
+                      <div className="flex gap-4 mt-4">
+                        <Button
+                          size="lg"
+                          className="bg-green-500 hover:bg-green-600 text-white flex-1 flex items-center justify-center"
+                          onClick={() =>
+                            window.open(
+                              `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+                              "_blank"
+                            )
+                          }
+                        >
+                          <PhoneCall className="h-4 w-4 mr-2" />
+                          WhatsApp
+                        </Button>
+
+                        <Button
+                          size="lg"
+                          className="bg-blue-600 hover:bg-blue-700 text-white flex-1 flex items-center justify-center"
+                          onClick={() =>
+                            window.open(
+                              `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`,
+                              "_blank"
+                            )
+                          }
+                        >
+                          <Mail className="h-4 w-4 mr-2" />
+                          Email
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 )
@@ -164,11 +198,7 @@ export default function ServicesPage() {
                 <CardContent>
                   <div className="grid gap-4">
                     {[
-                      {
-                        day: "Dimanche",
-                        times: ["8h30", "10h30", "18h00"],
-                        special: "Messe principale à 10h30 avec chorale",
-                      },
+                      { day: "Dimanche", times: ["8h30", "10h30", "18h00"], special: "Messe principale à 10h30 avec chorale" },
                       { day: "Lundi", times: ["18h30"] },
                       { day: "Mardi", times: ["18h30"] },
                       { day: "Mercredi", times: ["18h30"] },
@@ -203,42 +233,8 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
-
-        {/* Intentions Section */}
-        <section id="intentions" className="py-16">
-          <div className="container px-4">
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold">Demander une Intention de Messe</h2>
-              <p className="text-lg text-muted-foreground">
-                Vous pouvez demander qu'une messe soit célébrée pour vos intentions particulières, vos proches ou vos
-                défunts. Cette tradition ancienne permet d'unir votre prière à celle de toute la communauté.
-              </p>
-              <div className="bg-muted/50 rounded-lg p-6 space-y-4">
-                <h3 className="font-semibold text-lg">Comment procéder ?</h3>
-                <ul className="text-left space-y-2 text-muted-foreground">
-                  <li className="flex items-start space-x-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span>Contactez le secrétariat par téléphone ou email</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span>Précisez votre intention et la date souhaitée</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span>Une offrande libre est suggérée (montant selon vos moyens)</span>
-                  </li>
-                </ul>
-              </div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                <Heart className="h-4 w-4 mr-2" />
-                Demander une intention
-              </Button>
-            </div>
-          </div>
-        </section>
       </main>
-      <Footer />
+      
     </div>
   )
 }

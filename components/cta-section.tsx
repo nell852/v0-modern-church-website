@@ -21,13 +21,14 @@ export function CTASection() {
                 <Heart className="h-8 w-8 text-primary" />
               </div>
               <div className="space-y-3">
-                <h3 className="text-2xl font-bold">Intention de Messe</h3>
+                <h3 className="text-2xl font-bold">Services paroissiaux</h3>
                 <p className="text-muted-foreground">
-                  Demandez une messe pour vos intentions particulières, vos proches ou vos défunts
+                  Decouvrez nos services religieux 
+                  et comment nous pouvons vous aider dans votre chemin de foi
                 </p>
               </div>
               <Button asChild className="w-full bg-primary hover:bg-primary/90">
-                <Link href="/services#intentions">Demander une intention</Link>
+                <Link href="/services#intentions">Decouvrez nos services</Link>
               </Button>
             </CardContent>
           </Card>

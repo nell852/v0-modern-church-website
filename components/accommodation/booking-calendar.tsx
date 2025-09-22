@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -9,9 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"
-import { CalendarDays, MessageSquare } from "lucide-react"
+import { CalendarDays, MessageSquare, CheckCircle, AlertCircle } from "lucide-react"
 import { format } from "date-fns"
 import { fr } from "date-fns/locale"
 
@@ -26,32 +23,54 @@ export function BookingCalendar() {
     phone: "",
     message: "",
   })
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+    setFormData(prev => ({ ...prev, [field]: value }))
+    if (error) setError(null)
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the booking request to your backend
-    console.log("Booking request:", {
-      checkIn,
-      checkOut,
-      ...formData,
-    })
-    alert("Demande de réservation envoyée ! Nous vous contacterons sous 24h.")
+    if (!checkIn || !checkOut) {
+      setError("Veuillez sélectionner vos dates d'arrivée et de départ.")
+      return
+    }
+
+    // Ici tu peux envoyer par WhatsApp ou Email
+    const whatsappMessage = encodeURIComponent(
+      `Réservation:\nNom: ${formData.name}\nEmail: ${formData.email}\nTéléphone: ${formData.phone}\nType: ${formData.accommodationType}\nPersonnes: ${formData.guests}\nDates: ${format(checkIn, "dd/MM/yyyy")} - ${format(checkOut, "dd/MM/yyyy")}\nMessage: ${formData.message}`
+    )
+
+    const whatsappLink = `https://wa.me/237698849425?text=${whatsappMessage}`
+    const mailtoLink = `mailto:mvelenyogogsilvannel@gmail.com?subject=Nouvelle réservation&body=${whatsappMessage}`
+
+    setSubmitted(true)
+
+    window.open(whatsappLink, "_blank")
+    window.open(mailtoLink, "_blank")
   }
 
-  // Mock unavailable dates (you would fetch these from your database)
-  const unavailableDates = [
-    new Date(2024, 11, 15),
-    new Date(2024, 11, 16),
-    new Date(2024, 11, 25),
-    new Date(2024, 11, 26),
-  ]
-
-  const isDateUnavailable = (date: Date) => {
-    return unavailableDates.some((unavailableDate) => date.toDateString() === unavailableDate.toDateString())
+  if (submitted) {
+    return (
+      <section className="py-16">
+        <div className="container px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-8">
+              <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-green-800 mb-2">Demande envoyée !</h2>
+              <p className="text-green-700 mb-6">
+                Merci pour votre demande. Vous pouvez aussi vérifier vos messages WhatsApp et Email.
+              </p>
+              <Button onClick={() => setSubmitted(false)} variant="outline">
+                Faire une nouvelle réservation
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -60,187 +79,109 @@ export function BookingCalendar() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Réserver votre séjour</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Sélectionnez vos dates et remplissez le formulaire pour faire une demande de réservation
+            Remplissez le formulaire et sélectionnez vos dates.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <form onSubmit={handleSubmit} className="grid lg:grid-cols-2 gap-8">
-            {/* Calendar Section */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <CalendarDays className="h-5 w-5 text-primary" />
-                  Sélectionner les dates
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label>Date d'arrivée</Label>
-                    <div className="border rounded-md p-2 text-center">
-                      {checkIn ? format(checkIn, "dd MMMM yyyy", { locale: fr }) : "Sélectionner"}
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Date de départ</Label>
-                    <div className="border rounded-md p-2 text-center">
-                      {checkOut ? format(checkOut, "dd MMMM yyyy", { locale: fr }) : "Sélectionner"}
-                    </div>
-                  </div>
-                </div>
+        {error && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md flex items-center gap-2 text-red-700">
+            <AlertCircle className="h-4 w-4" />
+            <span>{error}</span>
+          </div>
+        )}
 
-                <div className="flex justify-center">
-                  <Calendar
-                    mode="range"
-                    selected={{ from: checkIn, to: checkOut }}
-                    onSelect={(range) => {
-                      setCheckIn(range?.from)
-                      setCheckOut(range?.to)
-                    }}
-                    disabled={isDateUnavailable}
-                    locale={fr}
-                    className="rounded-md border"
-                  />
-                </div>
-
+        <form onSubmit={handleSubmit} className="grid lg:grid-cols-2 gap-8">
+          {/* Dates */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <CalendarDays className="h-5 w-5 text-primary" />
+                Sélectionner les dates
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-destructive rounded-full"></div>
-                    <span className="text-sm">Dates non disponibles</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <span className="text-sm">Dates sélectionnées</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Booking Form */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageSquare className="h-5 w-5 text-primary" />
-                  Informations de réservation
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="accommodationType">Type d'hébergement</Label>
-                    <Select
-                      value={formData.accommodationType}
-                      onValueChange={(value) => handleInputChange("accommodationType", value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Choisir..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="individual">Chambre individuelle (35€/nuit)</SelectItem>
-                        <SelectItem value="double">Chambre double (55€/nuit)</SelectItem>
-                        <SelectItem value="group">Groupe 6-12 pers. (280€/nuit)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="guests">Nombre de personnes</Label>
-                    <Select value={formData.guests} onValueChange={(value) => handleInputChange("guests", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Sélectionner..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-                          <SelectItem key={num} value={num.toString()}>
-                            {num} personne{num > 1 ? "s" : ""}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nom complet *</Label>
+                  <Label>Date d'arrivée</Label>
                   <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => handleInputChange("name", e.target.value)}
-                    placeholder="Votre nom et prénom"
-                    required
+                    type="date"
+                    value={checkIn ? format(checkIn, "yyyy-MM-dd") : ""}
+                    onChange={e => setCheckIn(new Date(e.target.value))}
                   />
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
-                      placeholder="votre@email.com"
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Téléphone</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="06 12 34 56 78"
-                    />
-                  </div>
-                </div>
-
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message (optionnel)</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Précisez vos besoins particuliers, régime alimentaire, etc."
-                    rows={4}
+                  <Label>Date de départ</Label>
+                  <Input
+                    type="date"
+                    value={checkOut ? format(checkOut, "yyyy-MM-dd") : ""}
+                    onChange={e => setCheckOut(new Date(e.target.value))}
                   />
                 </div>
+              </div>
+            </CardContent>
+          </Card>
 
-                <div className="pt-4 border-t">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-semibold">Estimation du séjour :</span>
-                    <Badge variant="secondary" className="text-lg px-3 py-1">
-                      {checkIn && checkOut && formData.accommodationType
-                        ? `${calculateTotal(checkIn, checkOut, formData.accommodationType)}€`
-                        : "Sélectionner les dates"}
-                    </Badge>
-                  </div>
+          {/* Formulaire */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MessageSquare className="h-5 w-5 text-primary" />
+                Informations de réservation
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label>Nom complet *</Label>
+                <Input value={formData.name} onChange={e => handleInputChange("name", e.target.value)} required />
+              </div>
+              <div className="space-y-2">
+                <Label>Email *</Label>
+                <Input type="email" value={formData.email} onChange={e => handleInputChange("email", e.target.value)} required />
+              </div>
+              <div className="space-y-2">
+                <Label>Téléphone</Label>
+                <Input type="tel" value={formData.phone} onChange={e => handleInputChange("phone", e.target.value)} />
+              </div>
+              <div className="space-y-2">
+                <Label>Type d'hébergement</Label>
+                <Select value={formData.accommodationType} onValueChange={v => handleInputChange("accommodationType", v)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choisir..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="individual">Chambre individuelle</SelectItem>
+                    <SelectItem value="double">Chambre double</SelectItem>
+                    <SelectItem value="group">Groupe 6-12 pers.</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label>Nombre de personnes</Label>
+                <Select value={formData.guests} onValueChange={v => handleInputChange("guests", v)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Sélectionner..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Array.from({ length: 12 }, (_, i) => (
+                      <SelectItem key={i + 1} value={`${i + 1}`}>{i + 1} personne{i > 0 ? "s" : ""}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label>Message (optionnel)</Label>
+                <Textarea value={formData.message} onChange={e => handleInputChange("message", e.target.value)} rows={4} />
+              </div>
 
-                  <Button type="submit" className="w-full" size="lg">
-                    Envoyer la demande de réservation
-                  </Button>
-
-                  <p className="text-xs text-muted-foreground mt-2 text-center">
-                    * Champs obligatoires. Nous vous contacterons sous 24h pour confirmer votre réservation.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </form>
-        </div>
+              <div className="flex flex-col gap-3 mt-4">
+                <Button type="submit" className="w-full" size="lg">
+                  Envoyer via WhatsApp & Email
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </form>
       </div>
     </section>
   )
-}
-
-function calculateTotal(checkIn: Date, checkOut: Date, accommodationType: string): number {
-  const nights = Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24))
-  const rates = {
-    individual: 35,
-    double: 55,
-    group: 280,
-  }
-  return nights * (rates[accommodationType as keyof typeof rates] || 0)
 }

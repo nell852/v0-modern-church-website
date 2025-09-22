@@ -35,7 +35,7 @@ export const translations = {
       cta: "Découvrir nos services",
     },
     footer: {
-      churchName: "Paroisse Saint-Esprit",
+      churchName: "MAISON NAZARETH",
       tagline: "Accueil & Spiritualité",
       quickLinks: "Liens rapides",
       contact: "Contact",

@@ -2,13 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Clock } from "lucide-react"
 
 const massSchedule = [
-  { day: "Dimanche", times: ["8h30", "10h30", "18h00"], special: "Messe principale à 10h30 avec chorale" },
-  { day: "Lundi", times: ["18h30"] },
-  { day: "Mardi", times: ["18h30"] },
-  { day: "Mercredi", times: ["18h30"] },
-  { day: "Jeudi", times: ["18h30"] },
-  { day: "Vendredi", times: ["18h30"] },
-  { day: "Samedi", times: ["18h30"], special: "Messe du samedi soir" },
+  { day: "Dimanche", times: ["8h30", "11h30"], special: "Celebration eucharistique à ces deux heures" },
+  { day: "Lundi", times: ["12h"] },
+  { day: "Mardi", times: ["12h"] },
+  { day: "Mercredi", times: ["12h"] },
+  { day: "Jeudi", times: ["12h"] },
+  { day: "Vendredi", times: ["12h"] },
+  { day: "Samedi", times: ["12h"], special: ''},
 ]
 
 export function MassSchedule() {
