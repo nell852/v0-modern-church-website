@@ -24,12 +24,11 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        
           <Navigation />
           <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
           <Footer />
           <Analytics />
-        </ThemeProvider>
       </body>
     </html>
   )
