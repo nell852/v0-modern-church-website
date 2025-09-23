@@ -45,7 +45,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <img
-                src="/historic-church-exterior-with-bell-tower.jpg"
+                src="/eglise.jpg"
                 alt="Façade historique de l'église Saint-Esprit"
                 className="w-full h-[500px] object-cover rounded-lg shadow-lg"
               />
@@ -111,7 +111,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Gallery Section with captions */}
       <section className="py-16">
         <div className="container px-4">
           <div className="text-center mb-12">
@@ -122,48 +122,31 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="aspect-square overflow-hidden rounded-lg">
-              <img
-                src="/church-altar-with-stained-glass-windows.jpg"
-                alt="Autel principal avec vitraux"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg">
-              <img
-                src="/church-nave-with-wooden-pews.jpg"
-                alt="Nef de l'église avec bancs en bois"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg">
-              <img
-                src="/church-garden-with-statue.jpg"
-                alt="Jardin de l'église avec statue"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg">
-              <img
-                src="/guest-house-exterior-view.jpg"
-                alt="Vue extérieure de la maison d'hôtes"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg">
-              <img
-                src="/parish-hall-for-events.jpg"
-                alt="Salle paroissiale pour événements"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg">
-              <img
-                src="/chapel-for-quiet-prayer.jpg"
-                alt="Chapelle pour la prière silencieuse"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+            {[
+              { src: "/facette principale de l'eglise.jpg", alt: "Facette principale de l'église" },
+              { src: "/facette de droite de l'eglise.jpg", alt: "Facette de droite de l'église" },
+              { src: "/cour de la paroisse.jpg", alt: "Cour de la paroisse" },
+              { src: "/devanture de la paroisse.jpg", alt: "Devanture de la paroisse" },
+              { src: "/vue de cote de la facette principale.jpg", alt: "Vue de côté de la façade principale" },
+              { src: "/porte principale de la paroisse.jpg", alt: "Porte principale de la paroisse" },
+              { src: "/interieur  global de la paroisse.jpg", alt: "Intérieur global de la paroisse" },
+              { src: "/santuaire vierge Marie.jpg", alt: "Sanctuaire Vierge Marie" },
+              { src: "/porte d'entrée de droite de la paroisse.jpg", alt: "Porte d'entrée de droite de la paroisse" },
+              { src: "/jardin paroissial.jpg", alt: "Jardin paroissial" },
+              { src: "/arrière de la paroisse.jpg", alt: "Arrière de la paroisse" },
+              { src: "/lieu d'assise.jpg", alt: "Lieu d'Assise" },
+            ].map((img, i) => (
+              <figure key={i} className="aspect-square overflow-hidden rounded-lg text-center">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+                <figcaption className="mt-2 text-sm text-muted-foreground font-medium">
+                  {img.alt}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

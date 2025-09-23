@@ -26,6 +26,11 @@ export function HeroSection() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground text-pretty max-w-2xl mx-auto px-4 sm:px-0">
               Un lieu d'accueil, de prière et de partage au cœur de votre cheminement spirituel
+        
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground text-pretty max-w-2xl mx-auto px-4 sm:px-0">
+            
+              Silence - Prière - Formation - Repos - Retraite
             </p>
           </div>
 
@@ -63,13 +68,13 @@ export function HeroSection() {
             </Card>
 
             <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-              <Link href="/events">
+              <Link href="/team">
                 <CardContent className="p-4 sm:p-6 text-center space-y-2 sm:space-y-3">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
                     <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-secondary" />
                   </div>
-                  <h3 className="font-semibold text-sm sm:text-base">Agenda</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Événements et célébrations</p>
+                  <h3 className="font-semibold text-sm sm:text-base">Équipe</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Équipe paroissiale</p>
                 </CardContent>
               </Link>
             </Card>

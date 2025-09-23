@@ -26,7 +26,13 @@ export function Footer() {
   </div>
   <p className="text-sm text-muted-foreground leading-relaxed">
     Une communauté catholique accueillante au service de votre cheminement spirituel.
+    
   </p>
+<p className="text-sm text-muted-foreground leading-relaxed">
+    
+    Silence - Prière - Formation - Repos - Retraite
+  </p>
+
 </div>
 
 
