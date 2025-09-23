@@ -7,22 +7,22 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const galleryImages = [
   {
-    src: "/accommodation-bedroom-simple-peaceful.jpg",
+    src: "/log2.png",
     alt: "Chambre individuelle paisible",
     title: "Chambre individuelle",
   },
   {
-    src: "/accommodation-common-room-with-fireplace.jpg",
-    alt: "Salle commune avec cheminée",
+    src: "/log3.png",
+    alt: "Salle commune ",
     title: "Salle commune",
   },
   {
-    src: "/accommodation-kitchen-equipped-modern.jpg",
+    src: "/log1.png",
     alt: "Cuisine équipée moderne",
     title: "Cuisine équipée",
   },
   {
-    src: "/accommodation-garden-peaceful-meditation.jpg",
+    src: "/jardin paroissial.jpg",
     alt: "Jardin paisible pour méditation",
     title: "Jardin de méditation",
   },

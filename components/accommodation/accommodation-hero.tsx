@@ -43,7 +43,7 @@ export function AccommodationHero() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="flex items-center gap-2">
                     <Wifi className="h-4 w-4 text-primary" />
-                    <span className="text-sm">WiFi gratuit</span>
+                    <span className="text-sm">jardin gratuit</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Car className="h-4 w-4 text-primary" />
