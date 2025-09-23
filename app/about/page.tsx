@@ -133,7 +133,7 @@ export default function AboutPage() {
               { src: "/santuaire vierge Marie.jpg", alt: "Sanctuaire Vierge Marie" },
               { src: "/porte d'entrée de droite de la paroisse.jpg", alt: "Porte d'entrée de droite de la paroisse" },
               { src: "/jardin paroissial.jpg", alt: "Jardin paroissial" },
-              { src: "/arrière de la paroisse.jpg", alt: "Arrière de la paroisse" },
+              { src: "/Arrière de la paroisse.jpg", alt: "Arrière de la paroisse" },
               { src: "/lieu d'assise.jpg", alt: "Lieu d'Assise" },
             ].map((img, i) => (
               <figure key={i} className="aspect-square overflow-hidden rounded-lg text-center">
