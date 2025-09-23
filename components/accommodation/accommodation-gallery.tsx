@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const galleryImages = [
   {
-    src: "/log2.png",
+    src: "/advent-wreath-with-candles-in-church.jpg",
     alt: "Chambre individuelle paisible",
     title: "Chambre individuelle",
   },
@@ -65,7 +65,7 @@ export function AccommodationGallery() {
             <Card className="overflow-hidden">
               <div className="relative aspect-[16/9] md:aspect-[21/9]">
                 <img
-                  src={galleryImages[currentIndex].src || "/placeholder.svg"}
+                  src={galleryImages[currentIndex].src || "/eglise.jpg"}
                   alt={galleryImages[currentIndex].alt}
                   className="w-full h-full object-cover"
                 />

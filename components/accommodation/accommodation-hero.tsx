@@ -43,7 +43,7 @@ export function AccommodationHero() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="flex items-center gap-2">
                     <Wifi className="h-4 w-4 text-primary" />
-                    <span className="text-sm">jardin gratuit</span>
+                    <span className="text-sm">WiFi gratuit</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Car className="h-4 w-4 text-primary" />
@@ -67,7 +67,7 @@ export function AccommodationHero() {
 
             <div className="relative">
               <img
-                src="/peaceful-accommodation-room-with-simple-decor.jpg"
+                src="/eglise.jpg"
                 alt="Chambre d'hébergement paisible"
                 className="rounded-lg shadow-lg w-full h-[400px] object-cover"
               />
