@@ -49,3 +49,4 @@ export const getNewsletterTemplateParams = (email: string) => ({
   subscriber_email: email,
   subscription_date: new Date().toLocaleDateString('fr-FR'),
 })
+

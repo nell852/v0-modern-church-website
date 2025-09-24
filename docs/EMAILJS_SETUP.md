@@ -175,3 +175,4 @@ Ajoutez les variables dans Site settings > Environment variables
 ---
 
 **Note :** Gardez vos clés API secrètes et ne les commitez jamais dans le code source.
+

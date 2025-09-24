@@ -37,3 +37,4 @@ export function BookingModal({ serviceName, serviceId, customFields, children }:
     </Dialog>
   )
 }
+

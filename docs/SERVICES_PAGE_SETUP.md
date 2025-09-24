@@ -208,3 +208,4 @@ La page Services est maintenant **100% fonctionnelle** avec :
 - ✅ Statistiques en temps réel
 
 **Prêt pour la production !** 🚀
+

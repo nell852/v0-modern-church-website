@@ -31,12 +31,12 @@ export default function AboutPage() {
               </div>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Fondée en 1892, la Paroisse Saint-Esprit a traversé les époques en gardant intact son engagement au service de la communauté. 
-                  Née de la volonté de quelques familles pieuses du quartier, notre église a grandi avec la ville, accueillant des générations de fidèles.
+                   La Paroisse  Maison Nazareth de Mvolyé est située dans le quartier historique de Mvolyé à Yaoundé, au Cameroun.
+                     Elle a été un pilier de la communauté catholique locale, offrant un lieu de culte, d'accueil et de soutien spirituel à des générations de fidèles.
                 </p>
                 <p>
                   Au fil des décennies, nous avons su nous adapter aux besoins de notre temps tout en préservant la richesse de la tradition catholique. 
-                  Notre église, reconstruite en 1954 après les dommages de la guerre, témoigne de la résilience et de la foi de notre communauté.
+                  Nos activités pastorales, nos œuvres caritatives et notre vie communautaire témoignent de cette dynamique vivante.
                 </p>
                 <p>
                   Aujourd'hui, nous continuons cette mission d'accueil et d'accompagnement spirituel, enrichie par notre maison d'hôtes qui permet d'offrir un lieu de retraite et de ressourcement à tous ceux qui le souhaitent.
@@ -111,7 +111,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Gallery Section with captions */}
+      {/* Gallery Section */}
       <section className="py-16">
         <div className="container px-4">
           <div className="text-center mb-12">
@@ -151,43 +151,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Location Section */}
+      {/* Location Section with Google Map */}
       <section className="py-16 bg-muted/30">
         <div className="container px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <Badge variant="secondary" className="text-sm">Nous Trouver</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold">Au cœur de la ville</h2>
-              </div>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  Notre paroisse est idéalement située au centre-ville, facilement accessible en transports en commun
-                  et disposant d'un parking pour les visiteurs. L'église se trouve dans un quartier paisible, entourée
-                  d'un jardin qui invite à la méditation.
-                </p>
-                <div className="flex items-start space-x-3">
-                  <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold">Adresse complète :</div>
-                    <div>123 Rue de la Paix</div>
-                    <div>75001 Paris, France</div>
-                  </div>
-                </div>
-                <p>
-                  <strong>Transports :</strong> Métro ligne 1 et 4 (station Châtelet), Bus 21, 27, 38, 85
-                  <br />
-                  <strong>Parking :</strong> Places disponibles rue de Rivoli et parking souterrain Forum des Halles
-                </p>
-              </div>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nous trouver</h2>
+            <p className="text-lg text-muted-foreground">
+              Notre paroisse est idéalement située au centre-ville, facilement accessible
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.743247950272!2d11.51878607543169!3d3.849408996873465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x109d120e4c1d3f2d%3A0x8b8e3c3f7b0e34e7!2sQuartier%20Mvoly%C3%A9%2C%20Yaound%C3%A9%2C%20Cameroun!5e0!3m2!1sfr!2sfr!4v1695400000000!5m2!1sfr!2sfr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localisation de la Paroisse à Mvolyé, Yaoundé"
+              />
             </div>
-            <div className="relative">
-              <div className="w-full h-[400px] bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <MapPin className="h-12 w-12 text-primary mx-auto" />
-                  <p className="text-muted-foreground">Carte interactive Google Maps</p>
-                  <p className="text-sm text-muted-foreground">123 Rue de la Paix, 75001 Paris</p>
-                </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">En transport public</h3>
+                <p className="text-sm text-muted-foreground">
+                  Bus et taxi disponibles dans tout Yaoundé
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">En voiture</h3>
+                <p className="text-sm text-muted-foreground">
+                  Parking disponible à proximité
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">À pied</h3>
+                <p className="text-sm text-muted-foreground">
+                  Situé au cœur du quartier Mvolyé, facile à trouver
+                </p>
               </div>
             </div>
           </div>

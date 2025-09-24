@@ -69,3 +69,4 @@ FROM public.mass_schedules
 WHERE active = true
 GROUP BY day_of_week
 ORDER BY day_of_week;
+

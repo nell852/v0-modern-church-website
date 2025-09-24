@@ -54,3 +54,4 @@ CREATE TABLE IF NOT EXISTS public.service_bookings (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
