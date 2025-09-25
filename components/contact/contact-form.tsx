@@ -152,14 +152,14 @@ export function ContactForm() {
               <Phone className="h-4 w-4 mr-2" />
               Envoyer via WhatsApp
             </Button>
-            <Button
+            {/* <Button
               type="button"
               onClick={handleSubmitEmail}
               className="flex-1 flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white"
             >
               <Mail className="h-4 w-4 mr-2" />
               Envoyer par Email
-            </Button>
+            </Button> */}
           </div>
 
           <p className="text-xs text-muted-foreground text-center">

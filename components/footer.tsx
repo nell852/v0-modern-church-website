@@ -77,14 +77,15 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">698849425</span>
+                <span className="text-sm text-muted-foreground">694424444</span>
               </div>
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                 <span className="text-sm text-muted-foreground break-all sm:break-normal">
                   nyogognell@gmail.com
                 </span>
               </div>
+              */}
               <div className="flex items-start space-x-3">
                 <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-muted-foreground">

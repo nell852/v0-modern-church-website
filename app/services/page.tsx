@@ -82,12 +82,12 @@ const services = [
 ]
 
 export default function ServicesPage() {
-  const whatsappNumber = "237698849425"
+  const whatsappNumber = "237694424444"
   const whatsappMessage = "Bonjour, je voudrais prendre rendez-vous pour un service paroissial."
 
-  const emailAddress = "mvelenyogogsilvannel@gmail.com"
-  const emailSubject = "Demande de rendez-vous"
-  const emailBody = "Bonjour, je souhaite prendre un rendez-vous."
+  //const emailAddress = "mvelenyogogsilvannel@gmail.com"
+  //const emailSubject = "Demande de rendez-vous"
+  //const emailBody = "Bonjour, je souhaite prendre un rendez-vous."
 
   return (
     <div className="min-h-screen">
@@ -155,19 +155,7 @@ export default function ServicesPage() {
                           WhatsApp
                         </Button>
 
-                        <Button
-                          size="lg"
-                          className="bg-blue-600 hover:bg-blue-700 text-white flex-1 flex items-center justify-center"
-                          onClick={() =>
-                            window.open(
-                              `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`,
-                              "_blank"
-                            )
-                          }
-                        >
-                          <Mail className="h-4 w-4 mr-2" />
-                          Email
-                        </Button>
+                        
                       </div>
                     </CardContent>
                   </Card>

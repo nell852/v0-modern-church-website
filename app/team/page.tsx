@@ -113,7 +113,7 @@ export default async function TeamPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
   {/* WhatsApp */}
   <a
-    href="https://wa.me/237698849425"
+    href="https://wa.me/237694424444"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -124,17 +124,9 @@ export default async function TeamPage() {
   </a>
 
   {/* Gmail */}
-  <a
-    href="mailto:mvelenyogogsilvannel@gmail.com"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button variant="outline" size="lg">
-      <Mail className="h-4 w-4 mr-2" />
-      Nous écrire
-    </Button>
-  </a>
+  
 </div>
+
 
             </div>
           </div>

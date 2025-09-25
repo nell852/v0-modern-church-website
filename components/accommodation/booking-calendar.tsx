@@ -43,13 +43,13 @@ export function BookingCalendar() {
       `Réservation:\nNom: ${formData.name}\nEmail: ${formData.email}\nTéléphone: ${formData.phone}\nType: ${formData.accommodationType}\nPersonnes: ${formData.guests}\nDates: ${format(checkIn, "dd/MM/yyyy")} - ${format(checkOut, "dd/MM/yyyy")}\nMessage: ${formData.message}`
     )
 
-    const whatsappLink = `https://wa.me/237698849425?text=${whatsappMessage}`
-    const mailtoLink = `mailto:mvelenyogogsilvannel@gmail.com?subject=Nouvelle réservation&body=${whatsappMessage}`
+    const whatsappLink = `https://wa.me/237694424444?text=${whatsappMessage}`
+    //const mailtoLink = `mailto:mvelenyogogsilvannel@gmail.com?subject=Nouvelle réservation&body=${whatsappMessage}`
 
     setSubmitted(true)
 
     window.open(whatsappLink, "_blank")
-    window.open(mailtoLink, "_blank")
+    //window.open(mailtoLink, "_blank")
   }
 
   if (submitted) {
@@ -175,7 +175,7 @@ export function BookingCalendar() {
 
               <div className="flex flex-col gap-3 mt-4">
                 <Button type="submit" className="w-full" size="lg">
-                  Envoyer via WhatsApp & Email
+                  Envoyer via WhatsApp
                 </Button>
               </div>
             </CardContent>

@@ -44,16 +44,16 @@ export default function DonationForm() {
     const message = encodeURIComponent(
       `Bonjour, je souhaite faire un don.\nNom: ${name}\nEmail: ${email}\nTéléphone: ${phone}\nMontant: ${getCurrentAmount()} FCFA\nType: ${donationType}\nMéthode: ${paymentMethod}`
     )
-    window.open(`https://wa.me/237698849425?text=${message}`, "_blank")
+    window.open(`https://wa.me/237694424444?text=${message}`, "_blank")
   }
 
-  const handleSendEmail = () => {
+  /*const handleSendEmail = () => {
     const subject = encodeURIComponent("Demande de don")
     const body = encodeURIComponent(
       `Bonjour,\n\nJe souhaite faire un don.\n\nNom: ${name}\nEmail: ${email}\nTéléphone: ${phone}\nMontant: ${getCurrentAmount()} FCFA\nType: ${donationType}\nMéthode: ${paymentMethod}`
     )
     window.location.href = `mailto:mvelenyogogsilvannel@gmail.com?subject=${subject}&body=${body}`
-  }
+  }*/
 
   return (
     <section className="py-16">
@@ -115,9 +115,9 @@ export default function DonationForm() {
   <Button onClick={handleSendWhatsApp} className="w-full">
     Envoyer la demande via WhatsApp
   </Button>
-  <Button onClick={handleSendEmail} className="w-full" variant="secondary">
+  {/* <Button onClick={handleSendEmail} className="w-full" variant="secondary">
     Envoyer la demande par Email
-  </Button>
+  </Button> */}
 </div>
 
             </CardContent>

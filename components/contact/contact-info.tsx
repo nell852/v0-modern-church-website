@@ -12,15 +12,15 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Téléphone",
-    content: "+237 698849425",
+    content: "+237 694424444",
     color: "text-secondary",
   },
-  {
+/*  {
     icon: Mail,
     title: "Email",
     content: "mvelenyogogsilvannel@gmail.com",
     color: "text-accent",
-  },
+  },*/
 ]
 
 const schedules = [
@@ -31,12 +31,12 @@ const schedules = [
 
 const team = [
   {
-    name: "Père Michel Dubois",
+    name: "Abbé Hervé Djamga  ",
     role: "Curé de la paroisse",
-    email: "pere.michel@paroisse-saint-esprit.fr",
-    phone: "+33 1 23 45 67 89",
+    //email: "pere.michel@paroisse-saint-esprit.fr",
+    phone: "+237 694424444",
   },
-  {
+  /*{
     name: "Sœur Marie-Claire",
     role: "Responsable pastorale",
     email: "sr.marie-claire@paroisse-saint-esprit.fr",
@@ -47,7 +47,7 @@ const team = [
     role: "Secrétaire paroissial",
     email: "secretariat@paroisse-saint-esprit.fr",
     phone: "+33 1 23 45 67 91",
-  },
+  },*/
 ]
 
 export function ContactInfo() {
@@ -119,10 +119,7 @@ export function ContactInfo() {
                 </div>
               </div>
               <div className="space-y-1 text-xs text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Mail className="h-3 w-3" />
-                  {member.email}
-                </div>
+                
                 <div className="flex items-center gap-1">
                   <Phone className="h-3 w-3" />
                   {member.phone}
@@ -143,7 +140,7 @@ export function ContactInfo() {
           <p className="text-sm text-muted-foreground mb-2">
             Pour les urgences (sacrement des malades, accompagnement en fin de vie), contactez-nous 24h/24 :
           </p>
-          <p className="font-semibold text-primary">+237 698849425</p>
+          <p className="font-semibold text-primary">+237 694424444</p>
         </CardContent>
       </Card>
     </div>
